@@ -13,31 +13,17 @@
             background: linear-gradient(to right, #ff9a9e, #fad0c4);
             flex-direction: column;
             font-family: 'Arial', sans-serif;
-            overflow: hidden;
+            text-align: center;
+            padding: 20px;
         }
-
-        /* Animación para corazones flotantes */
-        @keyframes floatHeart {
-            0% { transform: translateY(0); opacity: 1; }
-            100% { transform: translateY(-100px); opacity: 0; }
-        }
-
-        .heart {
-            position: absolute;
-            font-size: 50px; /* Aumentamos el tamaño de los corazones */
-            color: #ff4d6d;
-            animation: floatHeart 3s infinite;
-        }
-
         .envelope {
-            width: 300px; /* Aumentamos el tamaño del sobre */
-            height: 220px;
+            width: 200px;
+            height: 150px;
             background: #ff4d6d;
             position: relative;
             border-radius: 10px;
             cursor: pointer;
         }
-
         .flap {
             position: absolute;
             top: 0;
@@ -48,120 +34,88 @@
             clip-path: polygon(50% 20%, 100% 100%, 0% 100%);
             transition: transform 0.5s;
         }
-
         .message {
             position: absolute;
-            top: 50%; /* Centrado verticalmente */
+            top: 20px;
             left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80%; /* Ajustamos el ancho */
-            font-size: 18px; /* Ajustamos el tamaño del texto */
+            transform: translateX(-50%);
+            width: 80%;
+            height: 80%;
+            background: white;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
             font-weight: bold;
             color: #ff4d6d;
             opacity: 0;
-            background-color: white; /* Añadimos fondo blanco */
-            padding: 10px; /* Añadimos un poco de espacio dentro del mensaje */
-            text-align: center; /* Centrado horizontalmente */
-            border-radius: 5px;
             transition: opacity 0.5s;
         }
-
         .envelope.open .flap {
             transform: rotateX(180deg);
         }
-
         .envelope.open .message {
             opacity: 1;
         }
-
         .title {
-            font-size: 3vw;
+            font-size: 24px;
             color: white;
             margin-bottom: 20px;
         }
-
-        /* GIF container */
+        .poem {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ff4d6d;
+            margin-top: 30px;
+            line-height: 1.5;
+        }
+        .hearts {
+            color: red;
+            font-size: 30px;
+            margin: 10px 0;
+        }
         .gif-container {
             margin-top: 20px;
             text-align: center;
         }
-
         .gif {
             max-width: 100%;
             height: auto;
         }
-
-        /* Reproductor de música más pequeño */
-        .music-container iframe {
-            width: 90%;
-            height: 120px;
-            border-radius: 8px;
+        .music-container {
             margin-top: 20px;
-        }
-
-        /* Corazones en movimiento */
-        .heart:nth-child(1) {
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .heart:nth-child(2) {
-            left: 30%;
-            animation-delay: 1s;
-        }
-
-        .heart:nth-child(3) {
-            left: 50%;
-            animation-delay: 2s;
-        }
-
-        .heart:nth-child(4) {
-            left: 70%;
-            animation-delay: 3s;
-        }
-
-        .heart:nth-child(5) {
-            left: 90%;
-            animation-delay: 4s;
         }
     </style>
 </head>
 <body>
     <div class="title">💌 Abre este sobre 💌</div>
-    
-    <!-- Corazones flotantes -->
-    <div class="heart">❤️</div>
-    <div class="heart">❤️</div>
-    <div class="heart">❤️</div>
-    <div class="heart">❤️</div>
-    <div class="heart">❤️</div>
-
-    <!-- Sobre -->
     <div class="envelope" onclick="openEnvelope()">
         <div class="flap"></div>
-        <div class="message">En tus ojos descubrí el brillo
-que le falta a las estrellas.
-En tu risa, un dulce arrullo
-que calma hasta las centellas.
-
-Eres verso sin escribir,
-flor que abre sin temor.
-¿Puedo ser, en tu camino,
-un latido de ti?
-
-Te quiero mucho Evi ❤️
-        
-—Feliz San Valentín.</div>
+        <div class="message">Te quiero mucho ❤️</div>
     </div>
 
-    <!-- GIF -->
+    <div class="poem">
+        <p>Evelin, mi vida, mi cariño sincero,</p>
+        <p>contigo todo es más hermoso y entero.</p>
+        <p>En cada mirada, en cada suspiro,</p>
+        <p>siento que te quiero más, sin retiro.</p>
+        <p>❤️ Eres mi sol, mi luna, mi razón,</p>
+        <p>en tu cariño encontré mi canción.</p>
+        <p>Te quiero tanto que no hay forma de explicar,</p>
+        <p>en cada latido te vuelvo a adorar. ❤️</p>
+    </div>
+
+    <div class="hearts">
+        ❤️❤️❤️
+    </div>
+
     <div class="gif-container">
         <img src="https://i.imgur.com/aL1ABU9.gif" alt="GIF animado" class="gif">
     </div>
 
-    <!-- Reproductor de música -->
     <div class="music-container">
-        <iframe src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/rama-bayu-546248775/ed-sheeran-perfect-lyrics-video%3Futm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing&color=%23ff5500" scrolling="no" frameborder="no" allow="autoplay"></iframe>
+        <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/rama-bayu-546248775/ed-sheeran-perfect-lyrics-video%3Futm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing&color=%23ff5500"></iframe>
     </div>
 
     <script>
