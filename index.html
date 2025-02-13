@@ -24,7 +24,7 @@
 
         .heart {
             position: absolute;
-            font-size: 30px;
+            font-size: 50px; /* Aumentamos el tamaño de los corazones */
             color: #ff4d6d;
             animation: floatHeart 3s infinite;
         }
@@ -51,20 +51,15 @@
 
         .message {
             position: absolute;
-            top: 20px;
+            top: 50%; /* Centrado verticalmente */
             left: 50%;
-            transform: translateX(-50%);
-            width: 80%;
-            height: 80%;
-            background: white;
-            border-radius: 5px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 4vw; /* Tamaño adaptable */
+            transform: translate(-50%, -50%);
+            width: 90%; /* Ajustamos el ancho */
+            font-size: 16px; /* Ajustamos el tamaño del texto */
             font-weight: bold;
             color: #ff4d6d;
             opacity: 0;
+            text-align: center; /* Centrado horizontalmente */
             transition: opacity 0.5s;
         }
 
