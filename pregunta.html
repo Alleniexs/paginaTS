@@ -14,6 +14,8 @@
             background: linear-gradient(to right, #ff758c, #ff7eb3);
             font-family: 'Arial', sans-serif;
             text-align: center;
+            overflow: hidden;
+            position: relative;
         }
         .question {
             font-size: 24px;
@@ -40,9 +42,36 @@
         .btn-yes:hover {
             background-color: #ff2e4d;
         }
+        /* Animación para corazones flotantes */
+        @keyframes floatHeart {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-100vh); opacity: 0; }
+        }
+        .heart {
+            position: absolute;
+            font-size: 30px;
+            color: #ff4d6d;
+            animation: floatHeart 5s infinite;
+        }
     </style>
 </head>
 <body>
+    <!-- Corazones flotantes -->
+    <script>
+        function createHearts() {
+            for (let i = 0; i < 20; i++) {
+                let heart = document.createElement("div");
+                heart.classList.add("heart");
+                heart.innerHTML = "❤️";
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.animationDuration = Math.random() * 2 + 3 + "s";
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 5000);
+            }
+        }
+        setInterval(createHearts, 500);
+    </script>
+    
     <div class="question">¿Quieres ser mi San Valentín? ❤️</div>
     <div class="buttons">
         <button class="btn btn-yes" onclick="accept()">Sí</button>
