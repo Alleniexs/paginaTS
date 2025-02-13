@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quieres ser mi San Valentín? ❤️</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+        }
+        .question {
+            font-size: 24px;
+            color: white;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .btn-yes {
+            background-color: #ff4d6d;
+            color: white;
+        }
+        .btn-yes:hover {
+            background-color: #ff2e4d;
+        }
+    </style>
+</head>
+<body>
+    <div class="question">¿Quieres ser mi San Valentín? ❤️</div>
+    <div class="buttons">
+        <button class="btn btn-yes" onclick="accept()">Sí</button>
+        <button class="btn btn-yes" onclick="accept()">Sí</button>
+        <button class="btn btn-yes" onclick="accept()">Sí</button>
+    </div>
+
+    <script>
+        function accept() {
+            alert("¡Lo sabía! Te quiero mucho, Evi ❤️");
+            window.close();
+        }
+    </script>
+</body>
+</html>
