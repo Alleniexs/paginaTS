@@ -14,6 +14,7 @@
             flex-direction: column;
             font-family: 'Arial', sans-serif;
             overflow: hidden;
+            position: relative;
         }
 
         .title {
@@ -87,22 +88,40 @@
             margin-top: 20px;
             border-radius: 5px;
         }
+
+        /* Corazones flotantes */
+        @keyframes floatHeart {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-100px); opacity: 0; }
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 40px;
+            color: #ff4d6d;
+            animation: floatHeart 3s infinite;
+        }
+
+        .heart:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .heart:nth-child(2) { left: 30%; animation-delay: 1s; }
+        .heart:nth-child(3) { left: 50%; animation-delay: 2s; }
+        .heart:nth-child(4) { left: 70%; animation-delay: 3s; }
+        .heart:nth-child(5) { left: 90%; animation-delay: 4s; }
     </style>
 </head>
 <body>
     <div class="title">💌 Abre este sobre 💌</div>
 
+    <!-- Corazones flotantes -->
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+
     <div class="envelope" onclick="openEnvelope()">
         <div class="flap"></div>
-        <div class="message"><p>Evelin, mi vida, mi cariño sincero,
-        contigo todo es más hermoso y entero.</p>
-        <p>En cada mirada, en cada suspiro,
-        siento que te quiero más, sin retiro.</p>
-        <p>❤️ Eres mi sol, mi luna, mi razón,
-        en tu cariño encontré mi canción.</p>
-        <p>Te quiero tanto que no hay forma de explicar,
-        en cada latido te vuelvo a adorar. ❤️</p>
-         <p>Te quiero Mucho Evi ❤️❤️❤️❤️❤️</p></div>
+        <div class="message">Te quiero mucho Evi ❤️❤️❤️❤️❤️</div>
     </div>
 
     <div class="gif-container">
