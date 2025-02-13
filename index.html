@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Te Quiero Mucho Evi❤️</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            flex-direction: column;
+            font-family: 'Arial', sans-serif;
+        }
+        .envelope {
+            width: 200px;
+            height: 150px;
+            background: #ff4d6d;
+            position: relative;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .flap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #ff6b81;
+            clip-path: polygon(50% 20%, 100% 100%, 0% 100%);
+            transition: transform 0.5s;
+        }
+        .message {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 80%;
+            background: white;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #ff4d6d;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        .envelope.open .flap {
+            transform: rotateX(180deg);
+        }
+        .envelope.open .message {
+            opacity: 1;
+        }
+        .title {
+            font-size: 24px;
+            color: white;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="title">💌 Abre este sobre 💌</div>
+    <div class="envelope" onclick="openEnvelope()">
+        <div class="flap"></div>
+        <div class="message">Te quiero mucho ❤️</div>
+    </div>
+
+    <script>
+        function openEnvelope() {
+            document.querySelector('.envelope').classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
