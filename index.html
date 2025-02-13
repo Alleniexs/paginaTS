@@ -14,22 +14,25 @@
             flex-direction: column;
             font-family: 'Arial', sans-serif;
             overflow: hidden;
-            position: relative;
+            padding: 10px;
         }
 
         .title {
-            font-size: 3vw;
+            font-size: 5vw;
             color: white;
             margin-bottom: 20px;
+            text-align: center;
         }
 
         .envelope {
-            width: 300px;
-            height: 220px;
+            width: 80%;
+            max-width: 320px;
+            height: auto;
             background: #ff4d6d;
             position: relative;
             border-radius: 10px;
             cursor: pointer;
+            padding: 20px;
         }
 
         .flap {
@@ -44,17 +47,14 @@
         }
 
         .message {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80%;
-            font-size: 18px;
+            position: relative;
+            max-height: 150px;
+            overflow-y: auto;
+            font-size: 16px;
             font-weight: bold;
             color: #ff4d6d;
-            opacity: 0;
             background-color: white;
-            padding: 10px;
+            padding: 15px;
             text-align: center;
             border-radius: 5px;
             transition: opacity 0.5s;
@@ -88,40 +88,15 @@
             margin-top: 20px;
             border-radius: 5px;
         }
-
-        /* Corazones flotantes */
-        @keyframes floatHeart {
-            0% { transform: translateY(0); opacity: 1; }
-            100% { transform: translateY(-100px); opacity: 0; }
-        }
-
-        .heart {
-            position: absolute;
-            font-size: 40px;
-            color: #ff4d6d;
-            animation: floatHeart 3s infinite;
-        }
-
-        .heart:nth-child(1) { left: 10%; animation-delay: 0s; }
-        .heart:nth-child(2) { left: 30%; animation-delay: 1s; }
-        .heart:nth-child(3) { left: 50%; animation-delay: 2s; }
-        .heart:nth-child(4) { left: 70%; animation-delay: 3s; }
-        .heart:nth-child(5) { left: 90%; animation-delay: 4s; }
     </style>
 </head>
 <body>
     <div class="title">💌 Abre este sobre 💌</div>
 
-    <!-- Corazones flotantes -->
-    <div class="heart">❤️</div>
-    <div class="heart">❤️</div>
-    <div class="heart">❤️</div>
-    <div class="heart">❤️</div>
-    <div class="heart">❤️</div>
-
     <div class="envelope" onclick="openEnvelope()">
         <div class="flap"></div>
-        <div class="message"><p>Evelin, mi vida, mi cariño sincero,
+        <div class="message">
+           <p>Evelin, mi vida, mi cariño sincero,
         contigo todo es más hermoso y entero.</p>
         <p>En cada mirada, en cada suspiro,
         siento que te quiero más, sin retiro.</p>
@@ -134,7 +109,7 @@
         <p>Y si el tiempo nos quiere alejar,
             mi querer sabrá dónde regresar.</p>
          <p>Te quiero Mucho Evi ❤️❤️❤️❤️❤️</p>
-</div>
+        </div>
     </div>
 
     <div class="gif-container">
