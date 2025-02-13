@@ -15,6 +15,7 @@
             font-family: 'Arial', sans-serif;
             overflow: hidden;
             padding: 10px;
+            position: relative;
         }
 
         .title {
@@ -57,6 +58,7 @@
             padding: 15px;
             text-align: center;
             border-radius: 5px;
+            opacity: 0; /* El mensaje está oculto inicialmente */
             transition: opacity 0.5s;
         }
 
@@ -65,7 +67,7 @@
         }
 
         .envelope.open .message {
-            opacity: 1;
+            opacity: 1; /* El mensaje se muestra cuando el sobre está abierto */
         }
 
         .gif-container {
@@ -88,6 +90,51 @@
             margin-top: 20px;
             border-radius: 5px;
         }
+
+        .hearts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: -1;
+            animation: floatHearts 10s infinite;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 2rem;
+            color: #ff4d6d;
+            animation: floatHeart 6s ease-in-out infinite;
+        }
+
+        @keyframes floatHeart {
+            0% { transform: translateY(100vh) rotate(0deg); }
+            100% { transform: translateY(-100vh) rotate(360deg); }
+        }
+
+        @keyframes floatHearts {
+            0% { top: -20px; left: 0; }
+            100% { top: 100vh; left: 100vw; }
+        }
+
+        @media screen and (max-width: 768px) {
+            .music-container button {
+                width: 100%;
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            .title {
+                font-size: 8vw;
+            }
+
+            button {
+                width: 100%;
+                font-size: 16px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -96,19 +143,16 @@
     <div class="envelope" onclick="openEnvelope()">
         <div class="flap"></div>
         <div class="message">
-           <p>Evelin, mi vida, mi cariño sincero,
-        contigo todo es más hermoso y entero.</p>
-        <p>En cada mirada, en cada suspiro,
-        siento que te quiero más, sin retiro.</p>
-        <p>❤️ Eres mi sol, mi luna, mi razón,
-        en tu cariño encontré mi canción.</p>
-        <p>Te quiero tanto que no hay forma de explicar,
-        en cada latido te vuelvo a adorar. ❤️</p>
-        <p> Guardo tu risa en cada latido,
-            como un tesoro nunca perdido.</p>
-        <p>Y si el tiempo nos quiere alejar,
-            mi querer sabrá dónde regresar.</p>
-         <p>Te quiero Mucho Evi ❤️❤️❤️❤️❤️</p>
+            Evi, mi cariño, mi dulce razón,<br>
+            en cada suspiro late mi emoción.<br>
+            Te quiero en instantes, te quiero sin fin,<br>
+            te quiero en las sombras y al nuevo albor.<br>
+            <br>
+            Guardo tu risa en cada latido,<br>
+            como un tesoro nunca perdido.<br>
+            Y si el tiempo nos quiere alejar,<br>
+            mi querer sabrá dónde regresar. ❤️<br>
+            Te quiero mucho Evi❤️❤️❤️❤️<br>
         </div>
     </div>
 
@@ -122,6 +166,15 @@
     </div>
 
     <button onclick="openQuestion()">💖 Pregunta Especial 💖</button>
+
+    <div class="hearts">
+        <!-- Corazones flotantes -->
+        <div class="heart" style="top: 10%; left: 5%; animation-duration: 5s;">❤️</div>
+        <div class="heart" style="top: 20%; left: 25%; animation-duration: 7s;">❤️</div>
+        <div class="heart" style="top: 40%; left: 50%; animation-duration: 6s;">❤️</div>
+        <div class="heart" style="top: 60%; left: 70%; animation-duration: 4s;">❤️</div>
+        <div class="heart" style="top: 80%; left: 90%; animation-duration: 8s;">❤️</div>
+    </div>
 
     <script>
         function openEnvelope() {
