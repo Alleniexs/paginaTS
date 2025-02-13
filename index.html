@@ -16,16 +16,10 @@
             overflow: hidden;
         }
 
-        @keyframes floatHeart {
-            0% { transform: translateY(0); opacity: 1; }
-            100% { transform: translateY(-100px); opacity: 0; }
-        }
-
-        .heart {
-            position: absolute;
-            font-size: 50px;
-            color: #ff4d6d;
-            animation: floatHeart 3s infinite;
+        .title {
+            font-size: 3vw;
+            color: white;
+            margin-bottom: 20px;
         }
 
         .envelope {
@@ -73,12 +67,6 @@
             opacity: 1;
         }
 
-        .title {
-            font-size: 3vw;
-            color: white;
-            margin-bottom: 20px;
-        }
-
         .gif-container {
             margin-top: 20px;
             text-align: center;
@@ -90,49 +78,23 @@
         }
 
         .music-container button {
-            padding: 10px 20px;
-            font-size: 16px;
             background: #ff4d6d;
             color: white;
             border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-
-        .valentine-button {
-            margin-top: 20px;
             padding: 10px 20px;
-            font-size: 18px;
-            background: #ff6b81;
-            color: white;
-            border: none;
-            border-radius: 5px;
+            font-size: 16px;
             cursor: pointer;
+            margin-top: 20px;
+            border-radius: 5px;
         }
     </style>
 </head>
 <body>
     <div class="title">💌 Abre este sobre 💌</div>
-    <div class="heart">❤️</div>
-    <div class="heart">❤️</div>
-    <div class="heart">❤️</div>
-    <div class="heart">❤️</div>
-    <div class="heart">❤️</div>
 
     <div class="envelope" onclick="openEnvelope()">
         <div class="flap"></div>
-        <div class="message">
-            <p>Evelin, mi vida, mi cariño sincero,</p>
-            <p>contigo todo es más hermoso y entero.</p>
-            <p>En cada mirada, en cada suspiro,</p>
-            <p>siento que te quiero más, sin retiro.</p>
-            <p>❤️ Eres mi sol, mi luna, mi razón,</p>
-            <p>en tu cariño encontré mi canción.</p>
-            <p>Te quiero tanto que no hay forma de explicar,</p>
-            <p>en cada latido te vuelvo a adorar. ❤️</p>
-            <p>Te quiero Mucho Evi ❤️❤️❤️❤️❤️</p>
-        </div>
+        <div class="message">Te quiero mucho Evi ❤️❤️❤️❤️❤️</div>
     </div>
 
     <div class="gif-container">
@@ -144,7 +106,7 @@
         <audio id="music" src="https://raw.githubusercontent.com/Alleniexs/paginaTS/main/cancion.mp3" preload="auto"></audio>
     </div>
 
-    <button class="valentine-button" onclick="askValentine()">💖 Pregunta especial 💖</button>
+    <button onclick="openQuestion()">💖 Pregunta Especial 💖</button>
 
     <script>
         function openEnvelope() {
@@ -156,36 +118,8 @@
             music.play();
         }
 
-        function askValentine() {
-            var popup = window.open("", "Pregunta", "width=400,height=300");
-            popup.document.write(`
-                <html>
-                <head>
-                    <title>¿Quieres ser mi San Valentín? ❤️</title>
-                    <style>
-                        body {
-                            font-family: Arial, sans-serif;
-                            text-align: center;
-                            background-color: #ff9a9e;
-                        }
-                        h2 { color: white; }
-                        .btn { padding: 10px 20px; font-size: 18px; background: #ff4d6d; color: white; border: none; border-radius: 5px; cursor: pointer; margin: 5px; }
-                    </style>
-                </head>
-                <body>
-                    <h2>¿Quieres ser mi San Valentín? ❤️</h2>
-                    <button class="btn" onclick="acceptValentine()">Sí</button>
-                    <button class="btn" onclick="acceptValentine()">Sí</button>
-                    <button class="btn" onclick="acceptValentine()">Sí</button>
-                    <script>
-                        function acceptValentine() {
-                            alert('¡Lo sabía! Te quiero mucho, Evi ❤️');
-                            window.close();
-                        }
-                    </script>
-                </body>
-                </html>
-            `);
+        function openQuestion() {
+            window.open("pregunta.html", "_blank", "width=400,height=400");
         }
     </script>
 </body>
