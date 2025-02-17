@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flores Floreciendo con Mariposas</title>
+    <style>
+        body {
+            background-color: black;
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            position: relative;
+        }
+
+        /* Fondo con la luna */
+        .luna {
+            position: absolute;
+            top: 5vh;
+            right: 5vw;
+            width: 15vw;
+            opacity: 0.8;
+        }
+
+        /* Hierba */
+        .hierba {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 20vh;
+            background: url('hierba.png') repeat-x;
+            background-size: 100% 100%;
+            z-index: 6;
+        }
+
+        /* Luciérnagas */
+        .luciérnaga {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background-color: yellow;
+            border-radius: 50%;
+            opacity: 0;
+            animation: brillar 4s infinite alternate ease-in-out;
+        }
+
+        @keyframes brillar {
+            0% { opacity: 0; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.5); }
+            100% { opacity: 0; transform: scale(1); }
+        }
+
+        /* Estilo de las flores */
+        .flor {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%) scale(1);
+            opacity: 0;
+            width: 25vw;
+            animation: florecer 6s ease-in-out forwards;
+            z-index: 5;
+            clip-path: inset(100% 0 0 0);
+        }
+
+        .girasol {
+            left: 30%;
+            animation-delay: 2s;
+        }
+
+        @keyframes florecer {
+            0% { bottom: 10px; clip-path: inset(100% 0 0 0); opacity: 1; }
+            100% { bottom: 10px; clip-path: inset(0 0 0 0); opacity: 1; }
+        }
+
+        /* Mariposas estáticas alrededor de las flores */
+        .mariposa {
+            position: absolute;
+            width: 10vw; /* Aumento del tamaño de la mariposa */
+            opacity: 0;
+            animation: aparecer 5s infinite alternate ease-in-out;
+            z-index: 7;
+        }
+
+        @keyframes aparecer {
+            0% { opacity: 0; }
+            25% { opacity: 1; }
+            50% { opacity: 0; }
+            75% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        /* Posiciones fijas alrededor de las flores */
+        .mariposa1 { left: 5%; top: 10%; }  /* Ajustada más lejos de la rosa */
+        .mariposa2 { left: 60%; top: 30%; }  /* Ajustada más a la derecha */
+
+        /* Letrero de "Te quiero" */
+        .letrero {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 5vw;
+            font-family: 'Arial', sans-serif;
+            color: white;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+            animation: latir 2s infinite ease-in-out;
+            z-index: 10;
+        }
+
+        @keyframes latir {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Imagen de la luna -->
+    <img src="luna.png" class="luna">
+
+    <!-- Luciérnagas generadas con JS -->
+    <script>
+        function crearLuciérnagas() {
+            for (let i = 0; i < 30; i++) {
+                let luciérnaga = document.createElement("div");
+                luciérnaga.classList.add("luciérnaga");
+                document.body.appendChild(luciérnaga);
+
+                let x = Math.random() * window.innerWidth;
+                let y = Math.random() * window.innerHeight;
+
+                luciérnaga.style.left = `${x}px`;
+                luciérnaga.style.top = `${y}px`;
+                luciérnaga.style.animationDelay = `${Math.random() * 4}s`;
+            }
+        }
+
+        crearLuciérnagas();
+    </script>
+
+    <!-- Flores que aparecen desde la base -->
+    <img src="rosa.png" class="flor">
+    <img src="girasol.png" class="flor girasol">
+
+    <!-- Mariposas estáticas alrededor de las flores -->
+    <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdmZ2b2NvMW9wN2syNnl1a3Roa2xwNHQ4bXE5YXhjMG1xdHFra2owOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/PW1W1ccjZTeta/giphy.gif" class="mariposa mariposa1">
+    <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdmZ2b2NvMW9wN2syNnl1a3Roa2xwNHQ4bXE5YXhjMG1xdHFra2owOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/PW1W1ccjZTeta/giphy.gif" class="mariposa mariposa2">
+    
+    <!-- Texto "Te quiero" en el centro -->
+    <div class="letrero">Te Quiero Muchisimo <br>
+    Te Adoro Mi Vida ❤❤❤
+    </div>
+
+    <!-- Hierba -->
+    <div class="hierba"></div>
+
+</body>
+</html>
