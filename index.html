@@ -58,7 +58,7 @@
             padding: 15px;
             text-align: center;
             border-radius: 5px;
-            opacity: 0; /* El mensaje está oculto inicialmente */
+            opacity: 0;
             transition: opacity 0.5s;
         }
 
@@ -67,7 +67,7 @@
         }
 
         .envelope.open .message {
-            opacity: 1; /* El mensaje se muestra cuando el sobre está abierto */
+            opacity: 1;
         }
 
         .gif-container {
@@ -80,14 +80,14 @@
             height: auto;
         }
 
-        .music-container button {
+        .music-container button, .special-button {
             background: #ff4d6d;
             color: white;
             border: none;
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
-            margin-top: 20px;
+            margin-top: 10px;
             border-radius: 5px;
         }
 
@@ -172,10 +172,10 @@
         <audio id="music" src="https://raw.githubusercontent.com/Alleniexs/paginaTS/main/cancion.mp3" preload="auto"></audio>
     </div>
 
-    <button onclick="openQuestion()">💖 Pregunta Especial 💖</button>
+    <button class="special-button" onclick="openQuestion()">💖 Pregunta Especial 💖</button>
+    <button class="special-button" onclick="openLandscape()">🌿 Paisaje 🌿</button>
 
     <div class="hearts">
-        <!-- Corazones flotantes -->
         <div class="heart" style="top: 10%; left: 5%; animation-duration: 5s;">❤️</div>
         <div class="heart" style="top: 20%; left: 25%; animation-duration: 7s;">❤️</div>
         <div class="heart" style="top: 40%; left: 50%; animation-duration: 6s;">❤️</div>
@@ -195,6 +195,10 @@
 
         function openQuestion() {
             window.open("pregunta.html", "_blank", "width=400,height=400");
+        }
+
+        function openLandscape() {
+            window.open("flores.html", "_blank", "width=600,height=600");
         }
     </script>
 </body>
